@@ -11,6 +11,14 @@ export interface Teaching {
   category: string;
 }
 
+export interface Video {
+  title: string;
+  description: string;
+  thumbnail: string;
+  duration: string;
+  views: string;
+}
+
 export interface Sermon {
   title: string;
   speaker: string;

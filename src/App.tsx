@@ -6,6 +6,7 @@ import Testimonials from './pages/Testimonials';
 import Videos from './pages/Videos';
 import Podcast from './pages/Podcast';
 import Contact from './pages/Contact';
+import Footer from './components/layout/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );
