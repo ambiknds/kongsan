@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import DailyQuote from '../components/home/DailyQuote';
+import RandomVerse from '../components/home/RandomVerse';
 import TeachingCard from '../components/home/TeachingCard';
 import FeaturedSection from '../components/home/FeaturedSection';
 import { Quote, Teaching, Video, Podcast } from '../types';
@@ -87,7 +88,8 @@ const FEATURED_QUIZ = {
 export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-      <DailyQuote quote={DAILY_QUOTE} />
+      {/* <DailyQuote quote={DAILY_QUOTE} /> */}
+      <RandomVerse />
 
       <FeaturedSection title="Test Your Knowledge" linkTo="/quiz">
         <div className="max-w-2xl mx-auto">
