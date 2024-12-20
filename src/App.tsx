@@ -8,6 +8,7 @@ import Podcast from './pages/Podcast';
 import Contact from './pages/Contact';
 import Quiz from './pages/Quiz';
 import Footer from './components/layout/Footer';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/podcast" element={<Podcast />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/quiz" element={<Quiz />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />
