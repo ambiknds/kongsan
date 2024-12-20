@@ -6,6 +6,7 @@ import Testimonials from './pages/Testimonials';
 import Videos from './pages/Videos';
 import Podcast from './pages/Podcast';
 import Contact from './pages/Contact';
+import Quiz from './pages/Quiz';
 import Footer from './components/layout/Footer';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/videos" element={<Videos />} />
             <Route path="/podcast" element={<Podcast />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/quiz" element={<Quiz />} />
           </Routes>
         </main>
         <Footer />

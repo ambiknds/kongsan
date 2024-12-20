@@ -5,10 +5,11 @@ import { Link, useLocation } from 'react-router-dom';
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  { name: 'Testimonials', href: '/testimonials' },
-  { name: 'Videos', href: '/videos' },
-  { name: 'Podcast', href: '/podcast' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Quiz', href: '/quiz' },
+  // { name: 'Testimonials', href: '/testimonials' },
+  // { name: 'Videos', href: '/videos' },
+  // { name: 'Podcast', href: '/podcast' },
+  // { name: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {

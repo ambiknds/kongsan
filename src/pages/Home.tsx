@@ -5,6 +5,7 @@ import FeaturedSection from '../components/home/FeaturedSection';
 import { Quote, Teaching, Video, Podcast } from '../types';
 import FeaturedPodcast from '../components/home/FeaturesPodcast';
 import FeaturedVideo from '../components/home/FeaturedVideo';
+import FeaturedQuiz from '../components/home/FeaturedQuiz';
 
 const DAILY_QUOTE: Quote = {
   text: "For I know the plans I have for you, declares the LORD, plans for welfare and not for evil, to give you a future and a hope.",
@@ -76,11 +77,23 @@ const FEATURED_PODCASTS: Podcast[] = [
   },
 ];
 
+const FEATURED_QUIZ = {
+  title: "Bible Knowledge Quiz",
+  description: "Test your understanding of biblical teachings with our interactive quiz",
+  imageUrl: "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
+  questionsCount: 5
+};
 
 export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
       <DailyQuote quote={DAILY_QUOTE} />
+
+      <FeaturedSection title="Test Your Knowledge" linkTo="/quiz">
+        <div className="max-w-2xl mx-auto">
+          <FeaturedQuiz {...FEATURED_QUIZ} />
+        </div>
+      </FeaturedSection>
       
       <FeaturedSection title="Featured Teachings" linkTo="/teachings">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -95,7 +108,7 @@ export default function Home() {
           {FEATURED_VIDEOS.map((video, index) => (
             <FeaturedVideo key={index} video={video} />
           ))}
-          </div>
+        </div>
       </FeaturedSection>
 
       <FeaturedSection title="Recent Podcasts" linkTo="/podcast">

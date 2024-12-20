@@ -1,0 +1,388 @@
+[
+  {
+    "id": 1,
+    "question": "Who built the ark to survive the great flood?",
+    "options": ["Abraham", "Moses", "Noah", "David"],
+    "correctAnswer": 2,
+    "explanation": "Noah built the ark as instructed by God to survive the great flood (Genesis 6:14)."
+  },
+  {
+    "id": 2,
+    "question": "What is the first book of the Bible?",
+    "options": ["Exodus", "Genesis", "Psalms", "Leviticus"],
+    "correctAnswer": 1,
+    "explanation": "Genesis is the first book of the Bible, recounting the creation of the world."
+  },
+  {
+    "id": 3,
+    "question": "Who was thrown into the lions' den?",
+    "options": ["David", "Daniel", "Solomon", "Joseph"],
+    "correctAnswer": 1,
+    "explanation": "Daniel was thrown into the lions' den for praying to God against King Darius's decree (Daniel 6)."
+  },
+  {
+    "id": 4,
+    "question": "Which disciple denied Jesus three times?",
+    "options": ["John", "Matthew", "Peter", "Andrew"],
+    "correctAnswer": 2,
+    "explanation": "Peter denied knowing Jesus three times before the rooster crowed, as Jesus had predicted."
+  },
+  {
+    "id": 5,
+    "question": "Who was the strongest man in the Bible?",
+    "options": ["Samson", "David", "Goliath", "Solomon"],
+    "correctAnswer": 0,
+    "explanation": "Samson was given supernatural strength by God but lost it when his hair was cut (Judges 13-16)."
+  },
+  {
+    "id": 6,
+    "question": "What is the shortest verse in the Bible?",
+    "options": [
+      "\"Jesus wept.\"",
+      "\"God is love.\"",
+      "\"Rejoice always.\"",
+      "\"Pray continually.\""
+    ],
+    "correctAnswer": 0,
+    "explanation": "\"Jesus wept\" is the shortest verse in the Bible (John 11:35)."
+  },
+  {
+    "id": 7,
+    "question": "Who betrayed Jesus for 30 pieces of silver?",
+    "options": ["Peter", "Judas", "Thomas", "Philip"],
+    "correctAnswer": 1,
+    "explanation": "Judas Iscariot betrayed Jesus for 30 pieces of silver."
+  },
+  {
+    "id": 8,
+    "question": "How many disciples did Jesus have?",
+    "options": ["10", "11", "12", "13"],
+    "correctAnswer": 2,
+    "explanation": "Jesus had 12 disciples who followed Him during His ministry."
+  },
+  {
+    "id": 9,
+    "question": "Who was the first man created by God?",
+    "options": ["Abraham", "Noah", "Adam", "Moses"],
+    "correctAnswer": 2,
+    "explanation": "Adam was the first man created by God (Genesis 2:7)."
+  },
+  {
+    "id": 10,
+    "question": "Who is known as the apostle to the Gentiles?",
+    "options": ["Peter", "Paul", "John", "James"],
+    "correctAnswer": 1,
+    "explanation": "Paul is known as the apostle to the Gentiles (Romans 11:13)."
+  },
+  {
+    "id": 11,
+    "question": "What is the name of the place where Jesus was crucified?",
+    "options": ["Bethlehem", "Nazareth", "Golgotha", "Jerusalem"],
+    "correctAnswer": 2,
+    "explanation": "Jesus was crucified at Golgotha, also known as 'the place of the skull.'"
+  },
+  {
+    "id": 12,
+    "question": "Who received the Ten Commandments from God?",
+    "options": ["Moses", "Aaron", "Joshua", "Elijah"],
+    "correctAnswer": 0,
+    "explanation": "Moses received the Ten Commandments on Mount Sinai."
+  },
+  {
+    "id": 13,
+    "question": "What is the Bible's primary language?",
+    "options": ["Latin", "Hebrew", "Greek", "Aramaic"],
+    "correctAnswer": 1,
+    "explanation": "The Old Testament was primarily written in Hebrew, while the New Testament was written in Greek."
+  },
+  {
+    "id": 14,
+    "question": "Who is called the 'Prince of Peace' in the Bible?",
+    "options": ["David", "Solomon", "Jesus", "Isaiah"],
+    "correctAnswer": 2,
+    "explanation": "Jesus is called the 'Prince of Peace' in Isaiah 9:6."
+  },
+  {
+    "id": 15,
+    "question": "Who is the first woman mentioned in the Bible?",
+    "options": ["Eve", "Sarah", "Mary", "Ruth"],
+    "correctAnswer": 0,
+    "explanation": "Eve was the first woman mentioned in the Bible (Genesis 2:22)."
+  },
+  {
+    "id": 16,
+    "question": "What is the last book of the Bible?",
+    "options": ["Revelation", "Hebrews", "Jude", "James"],
+    "correctAnswer": 0,
+    "explanation": "Revelation is the last book of the Bible, written by John."
+  },
+  {
+    "id": 17,
+    "question": "Who killed Goliath?",
+    "options": ["Saul", "David", "Samson", "Absalom"],
+    "correctAnswer": 1,
+    "explanation": "David killed Goliath with a sling and a stone (1 Samuel 17:49)."
+  },
+  {
+    "id": 18,
+    "question": "How many plagues did God send on Egypt?",
+    "options": ["7", "10", "12", "14"],
+    "correctAnswer": 1,
+    "explanation": "God sent 10 plagues on Egypt to free the Israelites (Exodus 7–12)."
+  },
+  {
+    "id": 19,
+    "question": "What was the first miracle of Jesus?",
+    "options": [
+      "Healing a blind man",
+      "Feeding the 5000",
+      "Turning water into wine",
+      "Walking on water"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Jesus turned water into wine at a wedding in Cana (John 2:1-11)."
+  },
+  {
+    "id": 20,
+    "question": "What is the meaning of the name 'Emmanuel'?",
+    "options": [
+      "God with us",
+      "God is love",
+      "God saves",
+      "God's strength"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Emmanuel means 'God with us' (Matthew 1:23)."
+  },
+  {
+    "id": 21,
+    "question": "Who was thrown into the lion's den?",
+    "options": ["Daniel", "Joseph", "Moses", "Elijah"],
+    "correctAnswer": 0,
+    "explanation": "Daniel was thrown into the lion's den for praying to God (Daniel 6:16-22)."
+  },
+  {
+    "id": 22,
+    "question": "What is the Great Commission?",
+    "options": [
+      "To love one another",
+      "To spread the gospel",
+      "To observe the Sabbath",
+      "To fast and pray"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Great Commission is Jesus' command to spread the gospel (Matthew 28:19-20)."
+  },
+  {
+    "id": 23,
+    "question": "Who was the first king of Israel?",
+    "options": ["David", "Saul", "Solomon", "Samuel"],
+    "correctAnswer": 1,
+    "explanation": "Saul was the first king of Israel (1 Samuel 10:1)."
+  },
+  {
+    "id": 24,
+    "question": "How many days did God take to create the world?",
+    "options": ["5", "6", "7", "8"],
+    "correctAnswer": 1,
+    "explanation": "God created the world in six days and rested on the seventh (Genesis 1)."
+  },
+  {
+    "id": 25,
+    "question": "What was the Tower of Babel built for?",
+    "options": [
+      "Worshiping idols",
+      "Reaching heaven",
+      "Storing food",
+      "Defense against enemies"
+    ],
+    "correctAnswer": 1,
+    "explanation": "The Tower of Babel was built to reach heaven, which led to God confusing their language (Genesis 11:1-9)."
+  },
+  {
+    "id": 26,
+    "question": "What food did God provide for the Israelites in the wilderness?",
+    "options": ["Bread", "Manna", "Fish", "Honey"],
+    "correctAnswer": 1,
+    "explanation": "God provided manna for the Israelites in the wilderness (Exodus 16:15)."
+  },
+  {
+    "id": 27,
+    "question": "Who is the father of many nations?",
+    "options": ["Moses", "David", "Abraham", "Jacob"],
+    "correctAnswer": 2,
+    "explanation": "Abraham is called the father of many nations (Genesis 17:4)."
+  },
+  {
+    "id": 28,
+    "question": "How many fruits of the Spirit are mentioned in Galatians 5:22-23?",
+    "options": ["7", "8", "9", "10"],
+    "correctAnswer": 2,
+    "explanation": "There are 9 fruits of the Spirit mentioned in Galatians 5:22-23."
+  },
+  {
+    "id": 29,
+    "question": "Who denied Jesus three times?",
+    "options": ["Peter", "John", "Judas", "James"],
+    "correctAnswer": 0,
+    "explanation": "Peter denied Jesus three times before the rooster crowed (Matthew 26:69-75)."
+  },
+  {
+    "id": 30,
+    "question": "Which disciple walked on water with Jesus?",
+    "options": ["John", "Peter", "James", "Andrew"],
+    "correctAnswer": 1,
+    "explanation": "Peter walked on water with Jesus but began to sink when he doubted (Matthew 14:29-30)."
+  },
+  {
+    "id": 31,
+    "question": "Who led the Israelites into the Promised Land?",
+    "options": ["Moses", "Joshua", "Aaron", "Caleb"],
+    "correctAnswer": 1,
+    "explanation": "Joshua led the Israelites into the Promised Land after Moses died (Joshua 1:1-2)."
+  },
+  {
+    "id": 32,
+    "question": "What was the first commandment God gave to Adam and Eve?",
+    "options": [
+      "Do not eat from the tree of knowledge of good and evil",
+      "Be fruitful and multiply",
+      "Name the animals",
+      "Keep the Sabbath holy"
+    ],
+    "correctAnswer": 0,
+    "explanation": "God commanded Adam and Eve not to eat from the tree of knowledge of good and evil (Genesis 2:16-17)."
+  },
+  {
+    "id": 33,
+    "question": "Who built the ark to survive the flood?",
+    "options": ["Noah", "Abraham", "Moses", "Elijah"],
+    "correctAnswer": 0,
+    "explanation": "Noah built the ark to survive the flood as instructed by God (Genesis 6:13-22)."
+  },
+  {
+    "id": 34,
+    "question": "What is the longest book in the Bible?",
+    "options": ["Genesis", "Isaiah", "Psalms", "Jeremiah"],
+    "correctAnswer": 2,
+    "explanation": "Psalms is the longest book in the Bible with 150 chapters."
+  },
+  {
+    "id": 35,
+    "question": "Who was swallowed by a great fish?",
+    "options": ["Jonah", "Job", "Elijah", "Elisha"],
+    "correctAnswer": 0,
+    "explanation": "Jonah was swallowed by a great fish after disobeying God's command (Jonah 1:17)."
+  },
+  {
+    "id": 36,
+    "question": "Which book of the Bible contains the Ten Commandments?",
+    "options": ["Genesis", "Exodus", "Leviticus", "Deuteronomy"],
+    "correctAnswer": 1,
+    "explanation": "The Ten Commandments are found in Exodus 20:1-17."
+  },
+  {
+    "id": 37,
+    "question": "What was the name of the first woman?",
+    "options": ["Eve", "Mary", "Sarah", "Martha"],
+    "correctAnswer": 0,
+    "explanation": "Eve was the first woman created by God (Genesis 3:20)."
+  },
+  {
+    "id": 38,
+    "question": "What is the shortest verse in the Bible?",
+    "options": ["Jesus wept", "God is love", "Rejoice always", "Love one another"],
+    "correctAnswer": 0,
+    "explanation": "'Jesus wept' is the shortest verse, found in John 11:35."
+  },
+  {
+    "id": 39,
+    "question": "Who betrayed Jesus for 30 pieces of silver?",
+    "options": ["Peter", "Judas Iscariot", "Thomas", "Bartholomew"],
+    "correctAnswer": 1,
+    "explanation": "Judas Iscariot betrayed Jesus for 30 pieces of silver (Matthew 26:14-16)."
+  },
+  {
+    "id": 40,
+    "question": "What was Paul’s name before he became a Christian?",
+    "options": ["Simon", "Saul", "Peter", "Barnabas"],
+    "correctAnswer": 1,
+    "explanation": "Paul was known as Saul before his conversion (Acts 9:1-9)."
+  },
+  {
+    "id": 41,
+    "question": "Which city was known as the City of David?",
+    "options": ["Jericho", "Jerusalem", "Bethlehem", "Nazareth"],
+    "correctAnswer": 2,
+    "explanation": "Bethlehem is known as the City of David (Luke 2:4)."
+  },
+  {
+    "id": 42,
+    "question": "What did Jesus feed to the 5,000?",
+    "options": ["Fish and bread", "Meat and wine", "Fruits and honey", "Manna"],
+    "correctAnswer": 0,
+    "explanation": "Jesus fed the 5,000 with five loaves and two fish (Matthew 14:13-21)."
+  },
+  {
+    "id": 43,
+    "question": "What was the occupation of the apostle Peter?",
+    "options": ["Tax collector", "Fisherman", "Carpenter", "Shepherd"],
+    "correctAnswer": 1,
+    "explanation": "Peter was a fisherman before following Jesus (Matthew 4:18)."
+  },
+  {
+    "id": 44,
+    "question": "Who was the mother of Samuel, the prophet?",
+    "options": ["Hannah", "Elizabeth", "Sarah", "Rebekah"],
+    "correctAnswer": 0,
+    "explanation": "Hannah was the mother of Samuel (1 Samuel 1:20)."
+  },
+  {
+    "id": 45,
+    "question": "Which king built the temple in Jerusalem?",
+    "options": ["David", "Solomon", "Saul", "Hezekiah"],
+    "correctAnswer": 1,
+    "explanation": "King Solomon built the temple in Jerusalem (1 Kings 6)."
+  },
+  {
+    "id": 46,
+    "question": "What was the name of Abraham’s wife?",
+    "options": ["Sarah", "Rebekah", "Rachel", "Leah"],
+    "correctAnswer": 0,
+    "explanation": "Sarah was the wife of Abraham (Genesis 17:15)."
+  },
+  {
+    "id": 47,
+    "question": "Who was the strongest man in the Bible?",
+    "options": ["David", "Samson", "Goliath", "Saul"],
+    "correctAnswer": 1,
+    "explanation": "Samson was the strongest man in the Bible, known for his great strength (Judges 13-16)."
+  },
+  {
+    "id": 48,
+    "question": "Who wrote most of the Psalms?",
+    "options": ["Moses", "Solomon", "David", "Asaph"],
+    "correctAnswer": 2,
+    "explanation": "David wrote most of the Psalms, though others contributed as well."
+  },
+  {
+    "id": 49,
+    "question": "What was the first miracle performed by Peter in Acts?",
+    "options": [
+      "Healing a lame man",
+      "Raising the dead",
+      "Speaking in tongues",
+      "Feeding the hungry"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Peter healed a lame man at the temple gate (Acts 3:6-8)."
+  },
+  {
+    "id": 50,
+    "question": "Who was the disciple known as the doubter?",
+    "options": ["Peter", "Thomas", "Andrew", "John"],
+    "correctAnswer": 1,
+    "explanation": "Thomas was known as the doubter because he doubted Jesus’ resurrection until he saw Him (John 20:24-29)."
+  }
+  
+]
