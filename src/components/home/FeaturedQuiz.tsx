@@ -9,7 +9,7 @@ interface FeaturedQuizProps {
 
 export default function FeaturedQuiz({ title, description, imageUrl, questionsCount }: FeaturedQuizProps) {
   return (
-    <Link to="/Quiz" className="group">
+    <Link to="/quiz" className="group">
       <div className="relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
         <div className="aspect-w-16 aspect-h-9">
           <img 

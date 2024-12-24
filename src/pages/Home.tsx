@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import DailyQuote from '../components/home/DailyQuote';
 import RandomVerse from '../components/home/RandomVerse';
 import TeachingCard from '../components/home/TeachingCard';
