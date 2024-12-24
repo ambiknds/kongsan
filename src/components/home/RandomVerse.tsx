@@ -18,7 +18,7 @@ const RandomVerse: React.FC = () => {
     setError("");
     try {
       const response = await axios.get("https://bible-api.com/?random=verse");
-      console.log(response.data); // Debugging: Log the full API response
+      // console.log(response.data); // Debugging: Log the full API response
       setVerse({
         book_name: response.data.reference.split(" ")[0], // Extract book name from reference
         chapter: parseInt(response.data.reference.split(" ")[1].split(":")[0]), // Extract chapter

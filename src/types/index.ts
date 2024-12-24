@@ -4,6 +4,12 @@ export interface Quote {
   imageUrl?: string;
 }
 
+export interface Message {
+  text: string;
+  heading: string;
+  imageUrl?: string;
+}
+
 export interface Teaching {
   title: string;
   description: string;
