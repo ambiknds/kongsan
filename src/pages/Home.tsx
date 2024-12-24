@@ -3,7 +3,7 @@ import MyMessage from '../components/home/MyMessage'
 import RandomVerse from '../components/home/RandomVerse';
 import TeachingCard from '../components/home/TeachingCard';
 import FeaturedSection from '../components/home/FeaturedSection';
-import { Quote, Teaching, Video, Podcast, Message } from '../types';
+import { Quote, Teaching, Video, Podcast} from '../types';
 import FeaturedPodcast from '../components/home/FeaturesPodcast';
 import FeaturedVideo from '../components/home/FeaturedVideo';
 import FeaturedQuiz from '../components/home/FeaturedQuiz';
@@ -11,59 +11,6 @@ import FeaturedQuiz from '../components/home/FeaturedQuiz';
 const DAILY_QUOTE: Quote = {
   text: "For I know the plans I have for you, declares the LORD, plans for welfare and not for evil, to give you a future and a hope.",
   reference: "Jeremiah 29:11"
-};
-
-const MY_Message: Message = {
-  heading: "A Christmas Message of Hope and Love",
-  text: `As we celebrate the joyous season of Christmas, let us reflect on the true meaning of this time – the birth of our Lord and Savior, Jesus Christ. The story of His birth is not just a historical event but a profound reminder of God's love, grace, and faithfulness.
-
-  The Promise of a Savior
-  Over 700 years before Jesus was born, the prophet Isaiah proclaimed:
-  "For unto us a child is born, unto us a son is given, and the government shall be upon his shoulder; and his name shall be called Wonderful Counselor, Mighty God, Everlasting Father, Prince of Peace." (Isaiah 9:6)
-  This prophecy reveals God's eternal plan to bring salvation to humanity. Christmas reminds us that God's promises never fail, and His timing is always perfect.
-  
-  The Fulfillment of God's Love
-  In the little town of Bethlehem, the Word became flesh, and God dwelt among us.
-  "And the Word was made flesh, and dwelt among us, and we beheld his glory, the glory as of the only begotten of the Father, full of grace and truth." (John 1:14)
-  The birth of Jesus is the ultimate expression of God's love for mankind. He sent His Son into the world to redeem us and restore our relationship with Him.
-  
-  The Gift of Salvation
-  As the angel announced to the shepherds:
-  "For unto you is born this day in the city of David a Savior, which is Christ the Lord." (Luke 2:11)
-  This gift of salvation is for everyone. Jesus came not only to live among us but to die for our sins so that we may have eternal life.
-  "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life." (John 3:16)
-  
-  The Light of the World
-  Christmas also reminds us that Jesus is the light shining in the darkness.
-  "The people who walked in darkness have seen a great light; those who dwelt in a land of deep darkness, on them has light shone." (Isaiah 9:2)
-  In Him, we find hope, joy, and peace, even in challenging times. His light guides us and brings clarity to our lives.
-  
-  The Call to Rejoice
-  The heavenly hosts sang at His birth:
-  "Glory to God in the highest, and on earth peace, goodwill toward men." (Luke 2:14)
-  Christmas is a time of rejoicing because God has made a way for peace and reconciliation. As we sing carols and celebrate with loved ones, let us remember to give glory to God for His incredible gift.
-  
-  The Message of Giving
-  Just as the wise men brought gifts to honor the newborn King, we too are called to give.
-  "Every good gift and every perfect gift is from above, and cometh down from the Father of lights." (James 1:17)
-  Let us share our blessings with others, especially those in need, as an expression of gratitude for God's goodness.
-  
-  The Promise of Eternal Peace
-  Through Jesus, we are offered peace that surpasses all understanding.
-  "And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus." (Philippians 4:7)
-  This peace is not just for this season but for every moment of our lives, as we trust in Him.
-  
-  A Call to Reflect and Share
-  As we gather this Christmas, let us remember the humble beginnings of our Savior and His mission on earth.
-  "Go ye into all the world, and preach the gospel to every creature." (Mark 16:15)
-  May the joy of His birth inspire us to share His love and truth with others.
-  
-  Conclusion
-  Christmas is not merely about traditions or festivities; it is about the indescribable gift of God's Son. Let us celebrate with grateful hearts, keeping Christ at the center of our lives. As Paul reminds us:
-  "Thanks be unto God for his unspeakable gift." (2 Corinthians 9:15)
-  
-  May this Christmas bring you closer to God's love, fill your heart with His peace, and renew your spirit with His hope. Merry Christmas, and may the joy of our Savior's birth shine brightly in your life!`,
-  
 };
 
 const FEATURED_TEACHINGS: Teaching[] = [
@@ -142,7 +89,7 @@ export default function Home() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
       {/* <DailyQuote quote={DAILY_QUOTE} /> */}
-      <MyMessage message={MY_Message} />
+      <MyMessage/>
 
       <RandomVerse />
 
