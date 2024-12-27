@@ -1,40 +1,28 @@
+
 import DailyQuote from '../components/home/DailyQuote';
-import MyMessage from '../components/home/MyMessage'
-import RandomVerse from '../components/home/RandomVerse';
-import TeachingCard from '../components/home/TeachingCard';
 import FeaturedSection from '../components/home/FeaturedSection';
-import { Quote, Teaching, Video, Podcast} from '../types';
+import { Quote, Video, Podcast } from '../types';
 import FeaturedPodcast from '../components/home/FeaturesPodcast';
 import FeaturedVideo from '../components/home/FeaturedVideo';
 import FeaturedQuiz from '../components/home/FeaturedQuiz';
-
+import FeaturedMessage from '../components/home/FeaturedMessage';
+import { MESSAGES, TEACHINGS } from '../data/sampleData';
+import TeachingCard from '../components/home/TeachingCard';
+import MyMessage from '../components/home/MyMessage';
+import RandomVerse from '../components/home/RandomVerse';
 const DAILY_QUOTE: Quote = {
   text: "For I know the plans I have for you, declares the LORD, plans for welfare and not for evil, to give you a future and a hope.",
   reference: "Jeremiah 29:11"
 };
 
-const FEATURED_TEACHINGS: Teaching[] = [
-  {
-    title: "Understanding God's Grace",
-    description: "Discover the depth of God's unconditional love",
-    imageUrl: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&q=80",
-    category: "Grace"
-  },
-  {
-    title: "Walking in Faith",
-    description: "Practical steps to strengthen your faith journey",
-    imageUrl: "https://images.unsplash.com/photo-1492176273113-2d51f47b23b0?auto=format&fit=crop&q=80",
-    category: "Faith"
-  },
-  {
-    title: "Prayer Fundamentals",
-    description: "Building a strong prayer life",
-    imageUrl: "https://images.unsplash.com/photo-1514908162061-89747fab8b1e?auto=format&fit=crop&q=80",
-    category: "Prayer"
-  }
-];
+const FEATURED_QUIZ = {
+  title: "Bible Knowledge Quiz",
+  description: "Test your understanding of biblical teachings with our interactive quiz",
+  imageUrl: "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
+  questionsCount: 5
+};
 
-const FEATURED_VIDEOS : Video[] = [
+const FEATURED_VIDEOS: Video[] = [
   {
     title: 'Understanding the Beatitudes',
     description: 'A deep dive into the teachings of Jesus from the Sermon on the Mount',
@@ -78,17 +66,15 @@ const FEATURED_PODCASTS: Podcast[] = [
   },
 ];
 
-const FEATURED_QUIZ = {
-  title: "Bible Knowledge Quiz",
-  description: "Test your understanding of biblical teachings with our interactive quiz",
-  imageUrl: "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
-  questionsCount: 5
-};
-
 export default function Home() {
+  // Get the two most recent messages
+  const recentMessages = MESSAGES.slice(0, 2);
+  const recentTeachings = TEACHINGS.slice(0, 2);
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
       {/* <DailyQuote quote={DAILY_QUOTE} /> */}
+
       <MyMessage/>
 
       <RandomVerse />
@@ -98,11 +84,19 @@ export default function Home() {
           <FeaturedQuiz {...FEATURED_QUIZ} />
         </div>
       </FeaturedSection>
-      
-      {/* <FeaturedSection title="Featured Teachings" linkTo="/teachings">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {FEATURED_TEACHINGS.map((teaching, index) => (
-            <TeachingCard key={index} teaching={teaching} />
+
+      {/* <FeaturedSection title="Latest Messages" linkTo="/messages">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {recentMessages.map((message) => (
+            <FeaturedMessage key={message.id} message={message} />
+          ))}
+        </div>
+      </FeaturedSection>
+
+      <FeaturedSection title="Latest Teachings" linkTo="/teachings">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {recentTeachings.map((teaching) => (
+            <TeachingCard key={teaching.id} teaching={teaching} />
           ))}
         </div>
       </FeaturedSection>

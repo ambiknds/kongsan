@@ -5,10 +5,14 @@ export interface Quote {
 }
 
 export interface Teaching {
+  id: string;
   title: string;
   description: string;
+  content?: string;
   imageUrl: string;
   category: string;
+  author: string;
+  date: string;
 }
 
 export interface Video {

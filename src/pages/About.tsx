@@ -51,7 +51,7 @@ export default function About() {
           <div className="prose prose-lg mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Story</h3>
             <p className="text-gray-600">
-              Founded with a vision to make Christian resources accessible to everyone, our platform has grown into a vibrant community of believers seeking to deepen their faith and understanding of God's word.
+              Founded with a vision to make Christian resources accessible to everyone, our platform community of believers seeking to deepen their faith and understanding of God's word.
             </p>
             <p className="text-gray-600 mt-4">
               We believe in the power of digital ministry to reach people where they are, providing them with the tools and resources they need for their spiritual journey.
