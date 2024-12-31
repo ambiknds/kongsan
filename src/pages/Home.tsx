@@ -10,6 +10,7 @@ import { MESSAGES, TEACHINGS } from '../data/sampleData';
 import TeachingCard from '../components/home/TeachingCard';
 import MyMessage from '../components/home/MyMessage';
 import RandomVerse from '../components/home/RandomVerse';
+import NewYearMessage from '../components/home/NewYearMessage';
 const DAILY_QUOTE: Quote = {
   text: "For I know the plans I have for you, declares the LORD, plans for welfare and not for evil, to give you a future and a hope.",
   reference: "Jeremiah 29:11"
@@ -75,6 +76,7 @@ export default function Home() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
       {/* <DailyQuote quote={DAILY_QUOTE} /> */}
 
+      <NewYearMessage />
       <MyMessage/>
 
       <RandomVerse />
