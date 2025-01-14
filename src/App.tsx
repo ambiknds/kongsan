@@ -12,6 +12,7 @@ import Teachings from './pages/Teachings';
 import TeachingDetail from './pages/TeachingDetail';
 import Messages from './pages/Messages';
 import MessageDetail from './pages/MessageDetail';
+import MessageDetail from './pages/VerseSearch';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/teachings/:id" element={<TeachingDetail />} />
             <Route path="/messages" element={<Messages />} />
             <Route path="/messages/:id" element={<MessageDetail />} />
+            <Route path="/verse-search" element={<VerseSearch />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

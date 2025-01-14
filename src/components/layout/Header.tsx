@@ -12,6 +12,7 @@ const navigation = [
   // { name: 'Videos', href: '/videos' },
   // { name: 'Podcast', href: '/podcast' },
   // { name: 'Contact', href: '/contact' },
+  { name: 'Search Verse', href: '/verse-search'}
 ];
 
 export default function Header() {
