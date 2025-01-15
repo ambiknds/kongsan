@@ -13,7 +13,7 @@ export default function BibleApp() {
     try {
       const response = await fetch(`https://api.esv.org/v3/passage/search/?q=${encodeURIComponent(query)}&page-size=10`, {
         headers: {
-          'Authorization': 'Token 48af79ab745167562e0b7c489719651ca8dce6ea'
+          'Authorization': `Token ${import.meta.env.VITE_BIBLE_TOKEN}`
         }
       })
       const data = await response.json()

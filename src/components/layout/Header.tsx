@@ -20,8 +20,8 @@ export default function Header() {
   const location = useLocation();
 
   return (
-    <header className="bg-white shadow-sm fixed w-full top-0 z-50">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+    <header className="bg-white shadow-sm w-full">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5 text-2xl font-bold text-indigo-600">
             Kongsan

@@ -133,15 +133,15 @@ export default function Quiz() {
 
   if (quizState.showResults) {
     return (
-      <div className="pt-16 pb-8 px-4 min-h-[calc(100vh-4rem)] overflow-auto">
+      <div className="py-4 px-4 min-h-[calc(100vh-4rem)] overflow-auto">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-xl shadow-lg p-6">
+          <div className="bg-white rounded-xl shadow-lg p-4">
             <h2 className="text-2xl font-bold text-center mb-4">Quiz Results</h2>
             <p className="text-lg text-center mb-8">
               Score: <span className="font-semibold text-blue-600">{quizState.score}</span> / {questions.length}
             </p>
             
-            <div className="space-y-6 mb-6">
+            <div className="space-y-4 mb-4">
               {questions.map((q, idx) => (
                 <div key={idx} className="border-b pb-4">
                   <div className="flex items-center gap-2 mb-2">
@@ -195,7 +195,7 @@ export default function Quiz() {
   const currentQuestion = questions[quizState.currentQuestion];
 
   return (
-    <div className="pt-16 mt-8 pb-8 px-4 min-h-[calc(100vh-4rem)]">
+    <div className="my-2 p-4 min-h-[calc(100vh-4rem)]">
       <div className="max-w-2xl mx-auto h-full">
         <div className="bg-white rounded-xl shadow-lg p-6">
           <div className="space-y-4">

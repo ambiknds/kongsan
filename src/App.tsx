@@ -12,7 +12,7 @@ import Teachings from './pages/Teachings';
 import TeachingDetail from './pages/TeachingDetail';
 import Messages from './pages/Messages';
 import MessageDetail from './pages/MessageDetail';
-import MessageDetail from './pages/VerseSearch';
+import VerseSearch from './pages/VerseSearch';
 
 function App() {
   return (
