@@ -11,6 +11,8 @@ import TeachingCard from '../components/home/TeachingCard';
 import MyMessage from '../components/home/MyMessage';
 import RandomVerse from '../components/home/RandomVerse';
 import NewYearMessage from '../components/home/NewYearMessage';
+import verseSearch from '../assets/verse-finder.png'
+import { Link } from 'react-router-dom';
 const DAILY_QUOTE: Quote = {
   text: "For I know the plans I have for you, declares the LORD, plans for welfare and not for evil, to give you a future and a hope.",
   reference: "Jeremiah 29:11"
@@ -76,8 +78,6 @@ export default function Home() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
       {/* <DailyQuote quote={DAILY_QUOTE} /> */}
 
-      <NewYearMessage />
-      <MyMessage/>
 
       <RandomVerse />
 
@@ -86,6 +86,17 @@ export default function Home() {
           <FeaturedQuiz {...FEATURED_QUIZ} />
         </div>
       </FeaturedSection>
+
+      <FeaturedSection title="Verse Finder" linkTo="/verse-search">
+        <div className="max-w-2xl mx-auto">
+          <Link to='/verse-search'>
+            <img src={verseSearch} alt='verse-search' />
+          </Link>
+        </div>
+      </FeaturedSection>
+
+      <NewYearMessage />
+      <MyMessage/>
 
       {/* <FeaturedSection title="Latest Messages" linkTo="/messages">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
