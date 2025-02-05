@@ -73,23 +73,23 @@ export default function Home() {
       <RandomVerse />
 
       {/* quiz section */}
-      <section className="flex flex-col justify-between items-center py-8">
-        <div className="flex justify-between items-center mb-6">
+      <section className="bg-gradient-to-r from-indigo-200 via-purple-300 to-pink-200 rounded-lg shadow-lg flex flex-col justify-between items-center py-8 my-8">
+        <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900">Test Your Knowledge</h2>
         </div>
-        <div className="max-w-2xl mx-auto shadow-lg">
+        <div className="max-w-2xl mx-2 shadow-lg">
           <FeaturedQuiz quiz={FEATURED_QUIZ} />
         </div>
       </section>
 
       {/* verse finder section */}
-      <section className="flex flex-col justify-between items-center py-8">
-        <div className="flex justify-between items-center mb-6">
+      <section className="bg-gradient-to-r from-indigo-200 via-purple-300 to-pink-200 rounded-lg shadow-lg flex flex-col justify-between items-center py-8">
+        <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900">Verse Finder</h2>
         </div>
-        <div className="max-w-2xl mx-auto border rounded-xl shadow-lg">
+        <div className="max-w-2xl mx-2 border rounded-xl shadow-lg">
           <Link to='/verse-search'>
-            <img src={verseSearch} alt='verse-search' />
+            <img src={verseSearch} alt='verse-search'/>
           </Link>
         </div>
       </section>

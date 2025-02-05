@@ -38,11 +38,11 @@ const RandomVerse: React.FC = () => {
 
   return (
     <div className="bg-gradient-to-r from-indigo-200 via-purple-300 to-pink-500 rounded-lg shadow-lg p-6 mb-8">
-      <h1 className="text-2xl font-bold mb-4">Bible Verse for You</h1>
-      {loading && <p>Loading...</p>}
-      {error && <p className="text-red-500">{error}</p>}
+      <h1 className="text-2xl text-center font-bold mb-4">Bible Verse for You</h1>
+      {loading && <p className="mx-auto"></p>} 
+      {error && <p className="text-red-500 mx-auto">{error}</p>}
       {verse && (
-        <div className="text-lg">
+        <div className="bg-slate-200 text-lg max-w-2xl mx-auto border shadow-xl rounded-lg p-8">
           <p className="italic">"{verse.text}"</p>
           <p className="text-right text-indigo-600 font-semibold">
             - {verse.book_name} {verse.chapter}:{verse.verse}
