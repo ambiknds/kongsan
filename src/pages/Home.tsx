@@ -1,24 +1,18 @@
 
-import DailyQuote from '../components/home/DailyQuote';
 import FeaturedSection from '../components/home/FeaturedSection';
-import { Quote, Video, Podcast } from '../types';
+import {Quiz, Video, Podcast } from '../types';
 import FeaturedPodcast from '../components/home/FeaturesPodcast';
 import FeaturedVideo from '../components/home/FeaturedVideo';
 import FeaturedQuiz from '../components/home/FeaturedQuiz';
-import FeaturedMessage from '../components/home/FeaturedMessage';
-import { MESSAGES, TEACHINGS } from '../data/sampleData';
+import {TEACHINGS } from '../data/sampleData';
 import TeachingCard from '../components/home/TeachingCard';
 import MyMessage from '../components/home/MyMessage';
 import RandomVerse from '../components/home/RandomVerse';
 import NewYearMessage from '../components/home/NewYearMessage';
 import verseSearch from '../assets/verse-finder.png'
 import { Link } from 'react-router-dom';
-const DAILY_QUOTE: Quote = {
-  text: "For I know the plans I have for you, declares the LORD, plans for welfare and not for evil, to give you a future and a hope.",
-  reference: "Jeremiah 29:11"
-};
 
-const FEATURED_QUIZ = {
+const FEATURED_QUIZ: Quiz = {
   title: "Bible Knowledge Quiz",
   description: "Test your understanding of biblical teachings with our interactive quiz",
   imageUrl: "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
@@ -71,41 +65,39 @@ const FEATURED_PODCASTS: Podcast[] = [
 
 export default function Home() {
   // Get the two most recent messages
-  const recentMessages = MESSAGES.slice(0, 2);
   const recentTeachings = TEACHINGS.slice(0, 2);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-      {/* <DailyQuote quote={DAILY_QUOTE} /> */}
-
 
       <RandomVerse />
 
-      <FeaturedSection title="Test Your Knowledge" linkTo="/quiz">
-        <div className="max-w-2xl mx-auto">
-          <FeaturedQuiz {...FEATURED_QUIZ} />
+      {/* quiz section */}
+      <section className="flex flex-col justify-between items-center py-8">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-gray-900">Test Your Knowledge</h2>
         </div>
-      </FeaturedSection>
+        <div className="max-w-2xl mx-auto shadow-lg">
+          <FeaturedQuiz quiz={FEATURED_QUIZ} />
+        </div>
+      </section>
 
-      <FeaturedSection title="Verse Finder" linkTo="/verse-search">
-        <div className="max-w-2xl mx-auto">
+      {/* verse finder section */}
+      <section className="flex flex-col justify-between items-center py-8">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-gray-900">Verse Finder</h2>
+        </div>
+        <div className="max-w-2xl mx-auto border rounded-xl shadow-lg">
           <Link to='/verse-search'>
             <img src={verseSearch} alt='verse-search' />
           </Link>
         </div>
-      </FeaturedSection>
+      </section>
 
       <NewYearMessage />
       <MyMessage/>
 
-      {/* <FeaturedSection title="Latest Messages" linkTo="/messages">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {recentMessages.map((message) => (
-            <FeaturedMessage key={message.id} message={message} />
-          ))}
-        </div>
-      </FeaturedSection>
-
+      {/* 
       <FeaturedSection title="Latest Teachings" linkTo="/teachings">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {recentTeachings.map((teaching) => (

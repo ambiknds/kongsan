@@ -10,8 +10,6 @@ import Footer from './components/layout/Footer';
 import NotFound from './pages/NotFound';
 import Teachings from './pages/Teachings';
 import TeachingDetail from './pages/TeachingDetail';
-import Messages from './pages/Messages';
-import MessageDetail from './pages/MessageDetail';
 import VerseSearch from './pages/VerseSearch';
 
 function App() {
@@ -29,8 +27,6 @@ function App() {
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/teachings" element={<Teachings />} />
             <Route path="/teachings/:id" element={<TeachingDetail />} />
-            <Route path="/messages" element={<Messages />} />
-            <Route path="/messages/:id" element={<MessageDetail />} />
             <Route path="/verse-search" element={<VerseSearch />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

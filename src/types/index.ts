@@ -1,9 +1,3 @@
-export interface Quote {
-  text: string;
-  reference: string;
-  imageUrl?: string;
-}
-
 export interface Teaching {
   id: string;
   title: string;
@@ -23,15 +17,6 @@ export interface Video {
   views: string;
 }
 
-export interface Sermon {
-  title: string;
-  speaker: string;
-  date: string;
-  duration: string;
-  url: string;
-  type: 'audio' | 'video';
-}
-
 export interface Podcast {
   title: string;
   description: string;
@@ -39,4 +24,11 @@ export interface Podcast {
   duration: string;
   url: string;
   imageUrl: string;
+}
+
+export interface Quiz {
+  title: string;
+  description: string;
+  imageUrl: string;
+  questionsCount: number;
 }
