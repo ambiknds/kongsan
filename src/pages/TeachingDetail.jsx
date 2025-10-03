@@ -1,14 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { format } from 'date-fns';
-import { Teaching } from '../types';
 
-const TEACHINGS: Teaching[] = [
+const TEACHINGS = [
   {
     id: '1',
     title: "Understanding God's Grace",
     description: "Discover the depth of God's unconditional love and how it transforms our lives.",
     content: `
-      Grace is one of the most powerful and transformative concepts in Christianity. 
+      Grace is one of the most powerful and transformative concepts in Christianity.
       It's God's unmerited favor toward us, His unconditional love that we cannot earn or lose.
 
       Key Points:
@@ -40,7 +39,6 @@ const TEACHINGS: Teaching[] = [
     author: "Pastor David",
     date: "2024-12-20"
   },
-  // Add more teachings here
 ];
 
 export default function TeachingDetail() {
@@ -66,10 +64,10 @@ export default function TeachingDetail() {
           />
         </div>
       )}
-      
+
       <div className="prose prose-lg max-w-none">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">{teaching.title}</h1>
-        
+
         <div className="flex items-center gap-4 text-gray-600 mb-8">
           <span>{format(new Date(teaching.date), 'MMMM d, yyyy')}</span>
           <span>•</span>

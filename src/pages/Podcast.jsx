@@ -1,7 +1,6 @@
 import { Headphones, Clock, Calendar } from 'lucide-react';
-import { Podcast } from '../types';
 
-const podcasts: Podcast[] = [
+const podcasts = [
   {
     title: 'Walking with Christ Daily',
     description: 'Practical insights for living out your faith in everyday life',

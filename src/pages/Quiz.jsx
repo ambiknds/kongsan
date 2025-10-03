@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-import { QuizQuestion, QuizState } from '../types/quiz';
 import quizData from '../data/bibleQuiz.json';
 
-// Shuffle function for randomizing arrays
-const shuffleArray = <T,>(array: T[]): T[] => {
+const shuffleArray = (array) => {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -13,8 +11,8 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 };
 
 export default function Quiz() {
-  const [questions, setQuestions] = useState<QuizQuestion[]>([]);
-  const [quizState, setQuizState] = useState<QuizState>({
+  const [questions, setQuestions] = useState([]);
+  const [quizState, setQuizState] = useState({
     currentQuestion: 0,
     score: 0,
     showResults: false,
@@ -24,7 +22,6 @@ export default function Quiz() {
   });
 
   useEffect(() => {
-    // Shuffle questions and take only 5 random questions
     const shuffledQuestions = shuffleArray(quizData)
       .slice(0, 5)
       .map(q => {
@@ -33,7 +30,7 @@ export default function Quiz() {
         const newCorrectAnswerIndex = shuffledOptions.findIndex(
           option => option === correctOptionText
         );
-        
+
         return {
           ...q,
           options: shuffledOptions,
@@ -62,7 +59,7 @@ export default function Quiz() {
     }
   }, [quizState.timeLeft]);
 
-  const handleAnswer = (selectedOption: number) => {
+  const handleAnswer = (selectedOption) => {
     setQuizState(prev => ({
       ...prev,
       selectedAnswer: selectedOption
@@ -95,7 +92,6 @@ export default function Quiz() {
   };
 
   const restartQuiz = () => {
-    // Get 5 new random questions and shuffle their options
     const shuffledQuestions = shuffleArray([...quizData])
       .slice(0, 5)
       .map(q => {
@@ -104,7 +100,7 @@ export default function Quiz() {
         const newCorrectAnswerIndex = shuffledOptions.findIndex(
           option => option === correctOptionText
         );
-        
+
         return {
           ...q,
           options: shuffledOptions,
@@ -112,7 +108,7 @@ export default function Quiz() {
         };
       });
     setQuestions(shuffledQuestions);
-    
+
     setQuizState({
       currentQuestion: 0,
       score: 0,
@@ -140,7 +136,7 @@ export default function Quiz() {
             <p className="text-lg text-center mb-8">
               Score: <span className="font-semibold text-blue-600">{quizState.score}</span> / {questions.length}
             </p>
-            
+
             <div className="space-y-4 mb-4">
               {questions.map((q, idx) => (
                 <div key={idx} className="border-b pb-4">
@@ -152,9 +148,9 @@ export default function Quiz() {
                       <span className="bg-red-100 text-red-800 text-xs px-2 py-0.5 rounded-full">Incorrect</span>
                     )}
                   </div>
-                  
+
                   <p className="font-medium mb-3">{q.question}</p>
-                  
+
                   <div className="space-y-2 mb-3">
                     {q.options.map((opt, optIdx) => (
                       <div
@@ -171,7 +167,7 @@ export default function Quiz() {
                       </div>
                     ))}
                   </div>
-                  
+
                   <div className="text-sm text-gray-700">
                     <span className="font-medium">Explanation: </span>
                     {q.explanation}
@@ -205,16 +201,16 @@ export default function Quiz() {
                 Time: {quizState.timeLeft}s
               </span>
             </div>
-            
+
             <div className="w-full bg-gray-200 rounded-full h-1.5">
-              <div 
+              <div
                 className="bg-blue-600 h-1.5 rounded-full transition-all duration-1000"
                 style={{ width: `${(quizState.timeLeft / 30) * 100}%` }}
               />
             </div>
 
             <h2 className="text-lg font-semibold">{currentQuestion.question}</h2>
-            
+
             <div className="space-y-3">
               {currentQuestion.options.map((option, index) => (
                 <button
@@ -222,8 +218,8 @@ export default function Quiz() {
                   onClick={() => handleAnswer(index)}
                   disabled={quizState.selectedAnswer !== null}
                   className={`w-full text-left p-4 rounded-lg border-2 transition-all
-                    ${quizState.selectedAnswer === null 
-                      ? 'hover:bg-gray-50 hover:border-blue-300' 
+                    ${quizState.selectedAnswer === null
+                      ? 'hover:bg-gray-50 hover:border-blue-300'
                       : ''
                     }
                     ${quizState.selectedAnswer === index

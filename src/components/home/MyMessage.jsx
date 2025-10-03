@@ -1,12 +1,9 @@
 export default function MyMessage() {
   return (
     <div className="bg-gradient-to-r from-indigo-100 via-purple-200 to-pink-300 rounded-lg shadow-lg p-6 mb-8">
-      {/* <div className="text-3xl font-serif text-gray-800 mb-4">A Message For You</div> */}
       <div className="text-center text-xl text-indigo-600 font-semibold mb-4">
-        {/* {message.heading} */}
       </div>
       <div className="text-md font-serif text-gray-800 mb-4">
-        {/* {message.text} */}
       <h1 className="text-xl sm:text-4xl font-bold text-center text-red-600 mb-6">A Christmas Message of Hope and Love</h1>
 
       <p className="mb-4 text-lg leading-relaxed">

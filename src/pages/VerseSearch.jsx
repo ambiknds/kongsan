@@ -2,10 +2,10 @@ import { useState } from 'react'
 
 export default function BibleApp() {
   const [query, setQuery] = useState('')
-  const [verses, setVerses] = useState<Array<{ text: string; reference: string }>>([])
+  const [verses, setVerses] = useState([])
   const [error, setError] = useState('')
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setVerses([])
     setError('')
@@ -19,7 +19,7 @@ export default function BibleApp() {
       const data = await response.json()
 
       if (data.results && data.results.length > 0) {
-        const fetchedVerses = data.results.map((result: any) => ({
+        const fetchedVerses = data.results.map((result) => ({
           text: result.content,
           reference: result.reference
         }))
@@ -62,4 +62,3 @@ export default function BibleApp() {
     </div>
   )
 }
-

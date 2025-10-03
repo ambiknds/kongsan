@@ -1,7 +1,4 @@
-import { Message } from '../types/message';
-import { Teaching } from '../types';
-
-export const MESSAGES: Message[] = [
+export const MESSAGES = [
   {
     id: '1',
     title: 'Finding Peace in Troubled Times',
@@ -102,7 +99,7 @@ Understanding Your Purpose:
   }
 ];
 
-export const TEACHINGS: Teaching[] = [
+export const TEACHINGS = [
   {
     id: '1',
     title: "Understanding God's Grace",

@@ -23,10 +23,9 @@ export default function NewYearMessage() {
         <span className="italic">"And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus."</span> (Philippians 4:7)
       </p>
       <p className="mb-4">
-        Happy New Year! May God’s abundant blessings overflow in your life.{" "}
+        Happy New Year! May God's abundant blessings overflow in your life.{" "}
         <span className="italic">"The Lord bless you and keep you; the Lord make His face shine on you and be gracious to you."</span> (Numbers 6:24-25)
       </p>
     </div>
   );
-};
-
+}

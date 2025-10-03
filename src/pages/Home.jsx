@@ -1,6 +1,4 @@
-
 import FeaturedSection from '../components/home/FeaturedSection';
-import {Quiz, Video, Podcast } from '../types';
 import FeaturedPodcast from '../components/home/FeaturesPodcast';
 import FeaturedVideo from '../components/home/FeaturedVideo';
 import FeaturedQuiz from '../components/home/FeaturedQuiz';
@@ -12,14 +10,14 @@ import NewYearMessage from '../components/home/NewYearMessage';
 import verseSearch from '../assets/verse-finder.png'
 import { Link } from 'react-router-dom';
 
-const FEATURED_QUIZ: Quiz = {
+const FEATURED_QUIZ = {
   title: "Bible Knowledge Quiz",
   description: "Test your understanding of biblical teachings with our interactive quiz",
   imageUrl: "https://images.unsplash.com/photo-1519791883288-dc8bd696e667?auto=format&fit=crop&q=80",
   questionsCount: 5
 };
 
-const FEATURED_VIDEOS: Video[] = [
+const FEATURED_VIDEOS = [
   {
     title: 'Understanding the Beatitudes',
     description: 'A deep dive into the teachings of Jesus from the Sermon on the Mount',
@@ -36,7 +34,7 @@ const FEATURED_VIDEOS: Video[] = [
   },
 ];
 
-const FEATURED_PODCASTS: Podcast[] = [
+const FEATURED_PODCASTS = [
   {
     title: 'Walking with Christ Daily',
     description: 'Practical insights for living out your faith in everyday life',
@@ -64,7 +62,6 @@ const FEATURED_PODCASTS: Podcast[] = [
 ];
 
 export default function Home() {
-  // Get the two most recent messages
   const recentTeachings = TEACHINGS.slice(0, 2);
 
   return (
@@ -72,7 +69,6 @@ export default function Home() {
 
       <RandomVerse />
 
-      {/* quiz section */}
       <section className="bg-gradient-to-r from-indigo-200 via-purple-300 to-pink-200 rounded-lg shadow-lg flex flex-col justify-between items-center py-8 my-8">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900">Test Your Knowledge</h2>
@@ -82,7 +78,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* verse finder section */}
       <section className="bg-gradient-to-r from-indigo-200 via-purple-300 to-pink-200 rounded-lg shadow-lg flex flex-col justify-between items-center py-8">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-900">Verse Finder</h2>
@@ -93,34 +88,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
-      {/* <NewYearMessage /> */}
-      {/* <MyMessage/> */}
-
-      {/* 
-      <FeaturedSection title="Latest Teachings" linkTo="/teachings">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {recentTeachings.map((teaching) => (
-            <TeachingCard key={teaching.id} teaching={teaching} />
-          ))}
-        </div>
-      </FeaturedSection>
-
-      <FeaturedSection title="Latest Videos" linkTo="/videos">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {FEATURED_VIDEOS.map((video, index) => (
-            <FeaturedVideo key={index} video={video} />
-          ))}
-        </div>
-      </FeaturedSection>
-
-      <FeaturedSection title="Recent Podcasts" linkTo="/podcast">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {FEATURED_PODCASTS.map((podcast, index) => (
-            <FeaturedPodcast key={index} podcast={podcast} />
-          ))}
-        </div>
-      </FeaturedSection> */}
     </div>
   );
 }

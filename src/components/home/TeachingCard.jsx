@@ -1,12 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Teaching } from '../../types';
 import { format } from 'date-fns';
 
-interface TeachingCardProps {
-  teaching: Teaching;
-}
-
-export default function TeachingCard({ teaching }: TeachingCardProps) {
+export default function TeachingCard({ teaching }) {
   return (
     <Link to={`/teachings/${teaching.id}`} className="block">
       <div className="group relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-1">

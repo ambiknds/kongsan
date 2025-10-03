@@ -5,11 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
-  // { name: 'Teachings', href: '/teachings' },
   { name: 'Quiz', href: '/quiz' },
-  // { name: 'Videos', href: '/videos' },
-  // { name: 'Podcast', href: '/podcast' },
-  // { name: 'Contact', href: '/contact' },
   { name: 'Search Verse', href: '/verse-search'}
 ];
 
@@ -25,7 +21,7 @@ export default function Header() {
             Kongsan
           </Link>
         </div>
-        
+
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -35,7 +31,7 @@ export default function Header() {
             <Menu className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        
+
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
             <Link
@@ -53,7 +49,6 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div className="fixed inset-0 z-50">

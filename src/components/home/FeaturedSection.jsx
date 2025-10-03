@@ -1,13 +1,7 @@
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-interface FeaturedSectionProps {
-  title: string;
-  linkTo: string;
-  children: React.ReactNode;
-}
-
-export default function FeaturedSection({ title, linkTo, children }: FeaturedSectionProps) {
+export default function FeaturedSection({ title, linkTo, children }) {
   return (
     <section className="py-8">
       <div className="flex justify-between items-center mb-6">

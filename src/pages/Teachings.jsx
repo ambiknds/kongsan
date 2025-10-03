@@ -12,7 +12,7 @@ export default function Teachings() {
 
   const filteredTeachings = useMemo(() => {
     return TEACHINGS.filter(teaching => {
-      const matchesSearch = 
+      const matchesSearch =
         teaching.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         teaching.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         teaching.author.toLowerCase().includes(searchTerm.toLowerCase());
@@ -29,7 +29,7 @@ export default function Teachings() {
           Explore our collection of biblical teachings and spiritual insights.
         </p>
       </div>
-      
+
       <div className="mb-8 flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
           <label htmlFor="search" className="sr-only">Search teachings</label>

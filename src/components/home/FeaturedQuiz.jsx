@@ -1,17 +1,12 @@
 import {Link} from 'react-router-dom';
-import { Quiz } from '../../types';
 
-interface FeaturedQuizProps {
-  quiz: Quiz;
-}
-
-export default function FeaturedQuiz({quiz}: FeaturedQuizProps) {
+export default function FeaturedQuiz({quiz}) {
   return (
     <Link to="/quiz" className="group">
       <div className="relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl">
         <div className="aspect-w-16 aspect-h-9">
-          <img 
-            src={quiz.imageUrl} 
+          <img
+            src={quiz.imageUrl}
             alt={quiz.title}
             className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
           />
