@@ -94,8 +94,8 @@ export default function Home() {
         </div>
       </section>
 
-      <NewYearMessage />
-      <MyMessage/>
+      {/* <NewYearMessage /> */}
+      {/* <MyMessage/> */}
 
       {/* 
       <FeaturedSection title="Latest Teachings" linkTo="/teachings">
