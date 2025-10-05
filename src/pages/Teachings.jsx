@@ -1,17 +1,45 @@
-import { useState, useMemo } from 'react';
-import { TEACHINGS } from '../data/sampleData';
+import { useState, useEffect, useMemo } from 'react';
+import { client } from '../lib/sanity';
 import TeachingCard from '../components/home/TeachingCard';
 
 export default function Teachings() {
+  const [teachings, setTeachings] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
 
-  const categories = useMemo(() => {
-    return Array.from(new Set(TEACHINGS.map(teaching => teaching.category))).sort();
+  useEffect(() => {
+    const fetchTeachings = async () => {
+      try {
+        const data = await client.fetch(`
+          *[_type == "teaching"] | order(publishedAt desc) {
+            _id,
+            title,
+            description,
+            content,
+            imageUrl,
+            category,
+            author,
+            publishedAt
+          }
+        `);
+        setTeachings(data);
+      } catch (error) {
+        console.error('Error fetching teachings:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTeachings();
   }, []);
 
+  const categories = useMemo(() => {
+    return Array.from(new Set(teachings.map(teaching => teaching.category))).sort();
+  }, [teachings]);
+
   const filteredTeachings = useMemo(() => {
-    return TEACHINGS.filter(teaching => {
+    return teachings.filter(teaching => {
       const matchesSearch =
         teaching.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         teaching.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -19,7 +47,15 @@ export default function Teachings() {
       const matchesCategory = !selectedCategory || teaching.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
-  }, [searchTerm, selectedCategory]);
+  }, [teachings, searchTerm, selectedCategory]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
@@ -65,19 +101,27 @@ export default function Teachings() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredTeachings.map(teaching => (
-          <TeachingCard key={teaching.id} teaching={teaching} />
-        ))}
-      </div>
-
-      {filteredTeachings.length === 0 && (
+      {teachings.length === 0 ? (
         <div className="text-center py-12">
-          <h3 className="mt-2 text-sm font-medium text-gray-900">No teachings found</h3>
-          <p className="mt-1 text-sm text-gray-500">
-            Try adjusting your search or filter to find what you're looking for.
-          </p>
+          <p className="text-gray-500">No teachings available yet. Check back soon!</p>
         </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredTeachings.map(teaching => (
+              <TeachingCard key={teaching._id} teaching={teaching} />
+            ))}
+          </div>
+
+          {filteredTeachings.length === 0 && (
+            <div className="text-center py-12">
+              <h3 className="mt-2 text-sm font-medium text-gray-900">No teachings found</h3>
+              <p className="mt-1 text-sm text-gray-500">
+                Try adjusting your search or filter to find what you're looking for.
+              </p>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
