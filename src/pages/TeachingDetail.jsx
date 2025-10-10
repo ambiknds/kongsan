@@ -33,7 +33,7 @@ export default function TeachingDetail() {
     };
 
     fetchTeaching();
-  }, [id]);
+  }, [slug]);
 
   if (loading) {
     return (
