@@ -16,6 +16,7 @@ export default function Teachings() {
           *[_type == "teaching"] | order(publishedAt desc) {
             _id,
             title,
+            
             description,
             content,
             imageUrl,
