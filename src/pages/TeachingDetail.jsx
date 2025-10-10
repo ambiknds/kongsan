@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 import { client, urlFor } from '../lib/sanity';
 
 export default function TeachingDetail() {
-  const { slug } = useParams();
+  const { id } = useParams();
   const [teaching, setTeaching] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -12,10 +12,9 @@ export default function TeachingDetail() {
     const fetchTeaching = async () => {
       try {
         const data = await client.fetch(`
-          *[slug.current == "${slug}"] {
+          *[_type == "teaching" && _id == $id][0] {
             _id,
             title,
-            slug,
             description,
             content,
             imageUrl,
@@ -33,7 +32,33 @@ export default function TeachingDetail() {
     };
 
     fetchTeaching();
-  }, [slug]);
+  }, [id]);
+
+  useEffect(()=> {
+        client
+      .fetch(
+        `*[slug.current == "${slug}"] {
+         _id,
+            title,
+            description,
+            content,
+            imageUrl,
+            category,
+            author,
+            publishedAt.
+      }`
+      )
+      .then((data) => {
+        setBlogPost(data[0])
+        // console.log(data[0]);
+    })
+      .catch(console.error)
+    },[slug])
+
+    useEffect(()=> {
+      document.title = `Kompiwtor | ${blogPost.title}`
+    },[blogPost.title])
+
 
   if (loading) {
     return (
