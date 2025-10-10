@@ -38,7 +38,7 @@ export default function TeachingDetail() {
         client
       .fetch(
         `*[slug.current == "${slug}"] {
-         _id,
+           _id,
             title,
             description,
             content,
