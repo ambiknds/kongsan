@@ -12,7 +12,7 @@ export default function TeachingDetail() {
     const fetchTeaching = async () => {
       try {
         const data = await client.fetch(`
-          *[_type == "teaching" && slug.current == "${slug}"][0] {
+          *[_type == "teaching" && slug.current == "${slug}"] {
             _id,
             title,
             slug,
