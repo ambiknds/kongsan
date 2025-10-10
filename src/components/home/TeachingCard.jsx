@@ -4,7 +4,7 @@ import { urlFor } from '../../lib/sanity';
 
 export default function TeachingCard({ teaching }) {
   return (
-    <Link to={`/teachings/${teaching._id}`} className="block">
+    <Link to={`/teachings/${teaching.slug}`} className="block">
       <div className="group relative overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-1">
         <img
           src={teaching.imageUrl ? urlFor(teaching.imageUrl).width(600).url() : 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&q=80'}
