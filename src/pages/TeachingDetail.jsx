@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 import { client, urlFor } from '../lib/sanity';
 
 export default function TeachingDetail() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [teaching, setTeaching] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -12,7 +12,7 @@ export default function TeachingDetail() {
     const fetchTeaching = async () => {
       try {
         const data = await client.fetch(`
-          *[_type == "teaching" && _id == $id][0] {
+          *[_type == "teaching" && slug.current == "${slug}"][0] {
             _id,
             title,
             slug,
@@ -23,7 +23,7 @@ export default function TeachingDetail() {
             author,
             publishedAt
           }
-        `, { id });
+        `, { slug });
         setTeaching(data);
       } catch (error) {
         console.error('Error fetching teaching:', error);
