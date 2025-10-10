@@ -23,7 +23,7 @@ export default function TeachingDetail() {
             author,
             publishedAt
           }
-        `, { slug });
+        `, { id });
         setTeaching(data);
       } catch (error) {
         console.error('Error fetching teaching:', error);
