@@ -4,35 +4,35 @@ import { format } from 'date-fns';
 import { client, urlFor } from '../lib/sanity';
 
 export default function TeachingDetail() {
-  const { id } = useParams();
+  const { id, slug } = useParams();
   const [teaching, setTeaching] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchTeaching = async () => {
-      try {
-        const data = await client.fetch(`
-          *[_type == "teaching" && _id == $id][0] {
-            _id,
-            title,
-            description,
-            content,
-            imageUrl,
-            category,
-            author,
-            publishedAt
-          }
-        `, { id });
-        setTeaching(data);
-      } catch (error) {
-        console.error('Error fetching teaching:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchTeaching = async () => {
+  //     try {
+  //       const data = await client.fetch(`
+  //         *[_type == "teaching" && _id == $id][0] {
+  //           _id,
+  //           title,
+  //           description,
+  //           content,
+  //           imageUrl,
+  //           category,
+  //           author,
+  //           publishedAt
+  //         }
+  //       `, { id });
+  //       setTeaching(data);
+  //     } catch (error) {
+  //       console.error('Error fetching teaching:', error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchTeaching();
-  }, [id]);
+  //   fetchTeaching();
+  // }, [id]);
 
   useEffect(()=> {
         client
