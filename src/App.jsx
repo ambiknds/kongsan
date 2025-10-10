@@ -27,7 +27,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/teachings" element={<Teachings />} />
-            <Route path="/teachings/slug" element={<TeachingDetail />} />
+            <Route path="/teachings/:slug" element={<TeachingDetail />} />
             <Route path="/verse-search" element={<VerseSearch />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
