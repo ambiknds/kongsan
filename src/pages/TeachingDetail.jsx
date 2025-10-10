@@ -15,6 +15,7 @@ export default function TeachingDetail() {
           *[_type == "teaching" && _id == $id][0] {
             _id,
             title,
+            slug,
             description,
             content,
             imageUrl,
