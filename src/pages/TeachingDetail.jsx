@@ -35,8 +35,8 @@ export default function TeachingDetail() {
   }, [id]);
 
   useEffect(()=>{
-    document.title = `Kongsan | ${teaching.title}`
-  },[teaching.title])
+    document.title = `Kongsan | `
+  },[])
 
   if (loading) {
     return (
