@@ -14,6 +14,7 @@ export default function TeachingDetail() {
         const data = await client.fetch(`
           *[_type == "teaching" && _id == $id][0] {
             _id,
+            slug
             title,
             description,
             content,
