@@ -24,7 +24,7 @@ export default function TeachingDetail() {
           }
         `, { id });
         setTeaching(data);
-    document.title = `Kongsan | ${data.title}`
+        document.title = `Kongsan | ${data.title}`
         
       } catch (error) {
         console.error('Error fetching teaching:', error);
@@ -36,9 +36,9 @@ export default function TeachingDetail() {
     fetchTeaching();
   }, [id]);
 
-  useEffect(()=>{
-    document.title = `Kongsan | `
-  },[])
+  // useEffect(()=>{
+  //   document.title = `Kongsan | `
+  // },[])
 
   if (loading) {
     return (
