@@ -34,27 +34,7 @@ export default function TeachingDetail() {
   //   fetchTeaching();
   // }, [id]);
 
-  useEffect(()=> {
-        client
-      .fetch(
-        `*[slug.current == "${slug}"] {
-           _id,
-            title,
-            description,
-            content,
-            imageUrl,
-            category,
-            author,
-            publishedAt.
-      }`
-      )
-      .then((data) => {
-        setBlogPost(data[0])
-        // console.log(data[0]);
-    })
-      .catch(console.error)
-    },[slug])
-
+  
     useEffect(()=> {
       document.title = `Kompiwtor | ${blogPost.title}`
     },[blogPost.title])
