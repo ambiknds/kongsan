@@ -55,7 +55,7 @@ export default function TeachingDetail() {
   }
 
   return (
-    <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12">
       {teaching.imageUrl && (
         <div className="aspect-w-16 aspect-h-9 mb-8">
           <img
