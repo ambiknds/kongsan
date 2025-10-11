@@ -36,10 +36,7 @@ export default function TeachingDetail() {
     fetchTeaching();
   }, [id]);
 
-  // useEffect(()=>{
-  //   document.title = `Kongsan | `
-  // },[])
-
+  
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
