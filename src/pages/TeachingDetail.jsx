@@ -1,54 +1,51 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { format } from 'date-fns';
-
-const TEACHINGS = [
-  {
-    id: '1',
-    title: "Understanding God's Grace",
-    description: "Discover the depth of God's unconditional love and how it transforms our lives.",
-    content: `
-      Grace is one of the most powerful and transformative concepts in Christianity.
-      It's God's unmerited favor toward us, His unconditional love that we cannot earn or lose.
-
-      Key Points:
-
-      1. The Nature of Grace
-      - Grace is a gift, not something we earn
-      - It's an expression of God's love for us
-      - It's available to everyone
-
-      2. The Power of Grace
-      - Transforms our relationship with God
-      - Changes how we view ourselves
-      - Affects how we treat others
-
-      3. Living in Grace
-      - Accepting God's forgiveness
-      - Extending grace to others
-      - Growing in understanding
-
-      4. Practical Applications
-      - Daily walking in grace
-      - Dealing with failure
-      - Sharing grace with others
-
-      Remember: Grace is not just a theological concept but a daily reality that should impact every aspect of our lives.
-    `,
-    imageUrl: "https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&q=80",
-    category: "Grace",
-    author: "Pastor David",
-    date: "2024-12-20"
-  },
-];
+import { client, urlFor } from '../lib/sanity';
 
 export default function TeachingDetail() {
   const { id } = useParams();
-  const teaching = TEACHINGS.find(t => t.id === id);
+  const [teaching, setTeaching] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTeaching = async () => {
+      try {
+        const data = await client.fetch(`
+          *[_type == "teaching" && _id == $id][0] {
+            _id,
+            title,
+            description,
+            content,
+            imageUrl,
+            category,
+            author,
+            publishedAt
+          }
+        `, { id });
+        setTeaching(data);
+      } catch (error) {
+        console.error('Error fetching teaching:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTeaching();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+      </div>
+    );
+  }
 
   if (!teaching) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
-        <p>Teaching not found</p>
+        <p className="text-gray-500">Teaching not found</p>
       </div>
     );
   }
@@ -58,7 +55,7 @@ export default function TeachingDetail() {
       {teaching.imageUrl && (
         <div className="aspect-w-16 aspect-h-9 mb-8">
           <img
-            src={teaching.imageUrl}
+            src={urlFor(teaching.imageUrl).width(1200).url()}
             alt={teaching.title}
             className="object-cover w-full h-full rounded-lg"
           />
@@ -69,7 +66,7 @@ export default function TeachingDetail() {
         <h1 className="text-3xl font-bold text-gray-900 mb-4">{teaching.title}</h1>
 
         <div className="flex items-center gap-4 text-gray-600 mb-8">
-          <span>{format(new Date(teaching.date), 'MMMM d, yyyy')}</span>
+          <span>{format(new Date(teaching.publishedAt), 'MMMM d, yyyy')}</span>
           <span>•</span>
           <span>{teaching.author}</span>
           <span>•</span>

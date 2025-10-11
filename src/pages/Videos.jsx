@@ -1,72 +1,99 @@
-import { Play, Clock } from 'lucide-react';
-
-const videos = [
-  {
-    title: 'Understanding the Beatitudes',
-    description: 'A deep dive into the teachings of Jesus from the Sermon on the Mount',
-    thumbnail: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80',
-    duration: '25:30',
-    views: '1.2K',
-  },
-  {
-    title: 'Prayer Workshop Series',
-    description: 'Learn how to develop a meaningful prayer life',
-    thumbnail: 'https://images.unsplash.com/photo-1544764200-d834fd210a23?auto=format&fit=crop&q=80',
-    duration: '45:15',
-    views: '856',
-  },
-  {
-    title: 'Bible Study Methods',
-    description: 'Practical techniques for studying scripture effectively',
-    thumbnail: 'https://images.unsplash.com/photo-1507434965515-61970f2bd7c6?auto=format&fit=crop&q=80',
-    duration: '32:45',
-    views: '2.1K',
-  },
-];
+import { useState, useEffect } from 'react';
+import { Play, Clock, Video as VideoIcon } from 'lucide-react';
+import { client, urlFor } from '../lib/sanity';
 
 export default function Videos() {
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const data = await client.fetch(`
+          *[_type == "video"] | order(publishedAt desc) {
+            _id,
+            title,
+            description,
+            thumbnail,
+            duration,
+            videoUrl,
+            publishedAt
+          }
+        `);
+        setVideos(data);
+      } catch (error) {
+        console.error('Error fetching videos:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVideos();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+      </div>
+    );
+  }
+
   return (
-    <div className="py-24">
+    <div className="py-24 bg-gradient-to-b from-gray-50 to-white min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
+            <VideoIcon className="w-8 h-8 text-indigo-600" />
+          </div>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Video Teachings
-          </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
-            Watch our collection of inspiring and educational Christian content.
+          </h1>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Watch our collection of inspiring and educational Christian content
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {videos.map((video) => (
-            <div
-              key={video.title}
-              className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="relative">
-                <img
-                  src={video.thumbnail}
-                  alt={video.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Play className="w-12 h-12 text-white" />
+        {videos.length === 0 ? (
+          <div className="text-center py-16 bg-white rounded-xl shadow-sm">
+            <VideoIcon className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+            <p className="text-gray-500 text-lg">No videos available yet. Check back soon!</p>
+          </div>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {videos.map((video) => (
+              <div
+                key={video._id}
+                className="group relative rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="relative">
+                  <img
+                    src={video.thumbnail ? urlFor(video.thumbnail).width(600).url() : 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&q=80'}
+                    alt={video.title}
+                    className="w-full h-52 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="bg-white/90 rounded-full p-4 transform scale-90 group-hover:scale-100 transition-transform duration-300">
+                      <Play className="w-10 h-10 text-indigo-600" fill="currentColor" />
+                    </div>
+                  </div>
+                  {video.duration && (
+                    <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium flex items-center gap-1">
+                      <Clock className="w-4 h-4" />
+                      {video.duration}
+                    </div>
+                  )}
                 </div>
-                <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded-md text-sm flex items-center">
-                  <Clock className="w-4 h-4 mr-1" />
-                  {video.duration}
+                <div className="p-5">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-indigo-600 transition-colors">
+                    {video.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm line-clamp-2 leading-relaxed">{video.description}</p>
                 </div>
               </div>
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {video.title}
-                </h3>
-                <p className="text-gray-600 text-sm mb-2">{video.description}</p>
-                <p className="text-gray-500 text-sm">{video.views} views</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -11,6 +11,7 @@ import NotFound from './pages/NotFound';
 import Teachings from './pages/Teachings';
 import TeachingDetail from './pages/TeachingDetail';
 import VerseSearch from './pages/VerseSearch';
+import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/teachings" element={<Teachings />} />
             <Route path="/teachings/:id" element={<TeachingDetail />} />
             <Route path="/verse-search" element={<VerseSearch />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
