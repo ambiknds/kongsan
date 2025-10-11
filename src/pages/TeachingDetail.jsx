@@ -61,7 +61,7 @@ export default function TeachingDetail() {
           <img
             src={urlFor(teaching.imageUrl).width(1200).url()}
             alt={teaching.title}
-            className="object-cover w-full h-full rounded-lg"
+            className="object-cover w-full h-2xl rounded-lg"
           />
         </div>
       )}
