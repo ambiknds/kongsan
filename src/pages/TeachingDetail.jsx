@@ -24,6 +24,8 @@ export default function TeachingDetail() {
           }
         `, { id });
         setTeaching(data);
+    document.title = `Kongsan | ${teaching.title}`
+        
       } catch (error) {
         console.error('Error fetching teaching:', error);
       } finally {
@@ -59,7 +61,7 @@ export default function TeachingDetail() {
       {teaching.imageUrl && (
         <div className="aspect-w-16 aspect-h-9 mb-8">
           <img
-            src={urlFor(teaching.imageUrl).width(600).url()}
+            src={urlFor(teaching.imageUrl).width(1200).url()}
             alt={teaching.title}
             className="object-cover w-full h-full rounded-lg"
           />
