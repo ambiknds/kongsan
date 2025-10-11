@@ -24,7 +24,7 @@ export default function TeachingDetail() {
           }
         `, { id });
         setTeaching(data);
-    document.title = `Kongsan | ${teaching.title}`
+    document.title = `Kongsan | ${data.title}`
         
       } catch (error) {
         console.error('Error fetching teaching:', error);
