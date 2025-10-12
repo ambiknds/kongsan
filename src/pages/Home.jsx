@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FeaturedSection from '../components/home/FeaturedSection';
-import FeaturedPodcast from '../components/home/FeaturesPodcast';
 import FeaturedVideo from '../components/home/FeaturedVideo';
 import FeaturedQuiz from '../components/home/FeaturedQuiz';
 import TeachingCard from '../components/home/TeachingCard';
@@ -19,27 +18,31 @@ const FEATURED_QUIZ = {
 export default function Home() {
   const [teachings, setTeachings] = useState([]);
   const [videos, setVideos] = useState([]);
-  const [podcasts, setPodcasts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchContent = async () => {
       try {
-        const [teachingsData, videosData, podcastsData] = await Promise.all([
+        const [teachingsData, videosData] = await Promise.all([
           client.fetch(`*[_type == "teaching"] | order(publishedAt desc)[0...2] {
-            _id, title, description, imageUrl, category, author, publishedAt
+            _id,
+            title,
+            slug,
+            description,
+            imageUrl,
+            category,
+            author,
+            publishedAt,
+            slug
           }`),
           client.fetch(`*[_type == "video"] | order(publishedAt desc)[0...2] {
-            _id, title, description, thumbnail, duration, videoUrl, publishedAt
-          }`),
-          client.fetch(`*[_type == "podcast"] | order(publishedAt desc)[0...3] {
-            _id, title, description, imageUrl, duration, audioUrl, publishedAt
+            _id, title, slug, description, thumbnail, duration, videoUrl, publishedAt
           }`)
+        
         ]);
 
         setTeachings(teachingsData);
         setVideos(videosData);
-        setPodcasts(podcastsData);
       } catch (error) {
         console.error('Error fetching content:', error);
       } finally {
@@ -96,15 +99,6 @@ export default function Home() {
         </FeaturedSection>
       )}
 
-      {!loading && podcasts.length > 0 && (
-        <FeaturedSection title="Recent Podcasts" linkTo="/podcast">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {podcasts.map((podcast) => (
-              <FeaturedPodcast key={podcast._id} podcast={podcast} />
-            ))}
-          </div>
-        </FeaturedSection>
-      )}
     </div>
   );
 }

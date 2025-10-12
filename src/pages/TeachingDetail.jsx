@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 import { client, urlFor } from '../lib/sanity';
 
 export default function TeachingDetail() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [teaching, setTeaching] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -12,10 +12,10 @@ export default function TeachingDetail() {
     const fetchTeaching = async () => {
       try {
         const data = await client.fetch(`
-          *[_type == "teaching" && _id == $id][0] {
+          *[_type == "teaching" && slug.current == $slug][0] {
             _id,
-            slug
             title,
+            slug,
             description,
             content,
             imageUrl,
@@ -23,10 +23,11 @@ export default function TeachingDetail() {
             author,
             publishedAt
           }
-        `, { id });
+        `, { slug });
         setTeaching(data);
-        document.title = `Kongsan | ${data.title}`
-        
+        if (data) {
+          document.title = `Kongsan | ${data.title}`;
+        }
       } catch (error) {
         console.error('Error fetching teaching:', error);
       } finally {
@@ -35,9 +36,8 @@ export default function TeachingDetail() {
     };
 
     fetchTeaching();
-  }, [id]);
+  }, [slug]);
 
-  
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -73,11 +73,11 @@ export default function TeachingDetail() {
           <span>{format(new Date(teaching.publishedAt), 'MMMM d, yyyy')}</span>
           <span>•</span>
           <span>{teaching.author}</span>
-          <span>•</span>
-          <span className="text-indigo-600">{teaching.category}</span>
+          {/* <span>•</span> */}
+          {/* <span className="text-indigo-600">{teaching.category}</span> */}
         </div>
 
-        <p className="text-xl text-gray-600 mb-8">{teaching.description}</p>
+        {/* <p className="text-xl text-gray-600 mb-8">{teaching.description}</p> */}
 
         <div className="whitespace-pre-line text-gray-700">
           {teaching.content}

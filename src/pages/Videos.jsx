@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Play, Clock, Video as VideoIcon } from 'lucide-react';
 import { client, urlFor } from '../lib/sanity';
+import { Link } from 'react-router-dom';
 
 export default function Videos() {
   const [videos, setVideos] = useState([]);
@@ -13,6 +14,7 @@ export default function Videos() {
           *[_type == "video"] | order(publishedAt desc) {
             _id,
             title,
+            slug,
             description,
             thumbnail,
             duration,
@@ -21,6 +23,8 @@ export default function Videos() {
           }
         `);
         setVideos(data);
+        console.log(data);
+        
       } catch (error) {
         console.error('Error fetching videos:', error);
       } finally {
@@ -38,6 +42,12 @@ export default function Videos() {
       </div>
     );
   }
+
+  const handleVideoClick = (videoUrl) => {
+    if (videoUrl) {
+      window.open(videoUrl, '_blank');
+    }
+  };
 
   return (
     <div className="py-24 bg-gradient-to-b from-gray-50 to-white min-h-screen">
@@ -62,8 +72,9 @@ export default function Videos() {
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {videos.map((video) => (
-              <div
+              <Link
                 key={video._id}
+                to={`/video/${video.slug.current}`}
                 className="group relative rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="relative">
@@ -90,9 +101,9 @@ export default function Videos() {
                   </h3>
                   <p className="text-gray-600 text-sm line-clamp-2 leading-relaxed">{video.description}</p>
                 </div>
-              </div>
+              </Link>
             ))}
-          </div>
+          </div>  
         )}
       </div>
     </div>

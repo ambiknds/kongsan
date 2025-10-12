@@ -1,8 +1,12 @@
 import { Play, Clock } from 'lucide-react';
 import { urlFor } from '../../lib/sanity';
+import {Link} from 'react-router-dom';
 
 export default function FeaturedVideo({video}) {
+  const slug = video.slug?.current || video._id;
+  
   return (
+    <Link to={`/video/${slug}`} className="block">
     <div className="group relative rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
       <div className="relative">
         <img
@@ -29,5 +33,6 @@ export default function FeaturedVideo({video}) {
         <p className="text-gray-600 text-sm line-clamp-2 leading-relaxed">{video.description}</p>
       </div>
     </div>
+    </Link>
   );
 }

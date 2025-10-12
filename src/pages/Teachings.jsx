@@ -16,7 +16,7 @@ export default function Teachings() {
           *[_type == "teaching"] | order(publishedAt desc) {
             _id,
             title,
-            slug
+            slug,
             description,
             content,
             imageUrl,
@@ -26,6 +26,7 @@ export default function Teachings() {
           }
         `);
         setTeachings(data);
+        
       } catch (error) {
         console.error('Error fetching teachings:', error);
       } finally {
