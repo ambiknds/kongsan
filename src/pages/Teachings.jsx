@@ -25,10 +25,11 @@ export default function Teachings() {
             publishedAt
           }
         `);
-        setTeachings(data);
+        setTeachings(data || []);
         
       } catch (error) {
         console.error('Error fetching teachings:', error);
+        setTeachings([]);
       } finally {
         setLoading(false);
       }
@@ -38,15 +39,20 @@ export default function Teachings() {
   }, []);
 
   const categories = useMemo(() => {
-    return Array.from(new Set(teachings.map(teaching => teaching.category))).sort();
+    if (!teachings || !Array.isArray(teachings)) return [];
+    return Array.from(new Set(teachings.filter(t => t && t.category).map(t => t.category))).sort();
   }, [teachings]);
 
   const filteredTeachings = useMemo(() => {
+    if (!teachings || !Array.isArray(teachings)) return [];
+    
     return teachings.filter(teaching => {
+      if (!teaching) return false;
+      
       const matchesSearch =
-        teaching.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        teaching.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        teaching.author.toLowerCase().includes(searchTerm.toLowerCase());
+        (teaching.title && teaching.title.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (teaching.description && teaching.description.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (teaching.author && teaching.author.toLowerCase().includes(searchTerm.toLowerCase()));
       const matchesCategory = !selectedCategory || teaching.category === selectedCategory;
       return matchesSearch && matchesCategory;
     });
@@ -95,14 +101,14 @@ export default function Teachings() {
               className="block w-full px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
             >
               <option value="">All Categories</option>
-              {categories.map(category => (
+              {categories && categories.map(category => (
                 <option key={category} value={category}>{category}</option>
               ))}
             </select>
           </div>
         </div>
 
-        {teachings.length === 0 ? (
+        {!teachings || teachings.length === 0 ? (
           <div className="text-center py-16 bg-white rounded-xl shadow-sm">
             <BookOpen className="w-16 h-16 text-gray-300 mx-auto mb-4" />
             <p className="text-gray-500 text-lg">No teachings available yet. Check back soon!</p>
@@ -110,12 +116,12 @@ export default function Teachings() {
         ) : (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredTeachings.map(teaching => (
-                <TeachingCard key={teaching._id} teaching={teaching} />
+              {filteredTeachings && filteredTeachings.map(teaching => (
+                teaching && <TeachingCard key={teaching._id} teaching={teaching} />
               ))}
             </div>
 
-            {filteredTeachings.length === 0 && (
+            {(!filteredTeachings || filteredTeachings.length === 0) && (
               <div className="text-center py-16 bg-white rounded-xl shadow-sm">
                 <Search className="w-12 h-12 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-gray-900 mb-2">No teachings found</h3>
